@@ -14,7 +14,7 @@ A playable, mobile-first **unofficial Lojay fan tribute** inspired by *Money Lin
 6. Share the receipt (uses your device's native Share Sheet when available; otherwise downloads the image).
 7. A player can play **once and replay once at most per browser**, for a total of two rounds. Refreshing during a round lets you resume without consuming another attempt; completed receipts can be revisited.
 
-There are six user-provided original Lojay portraits. The high-resolution orange portrait is the main hero; smaller portraits are displayed in a thumbnail collage **at or below their useful natural resolution** rather than stretched and blurred. The UI contains decorative money symbols, falling-cash animations, and a toggle for an original procedural electronic backing groove and subtle ATM sound effects; animations respect `prefers-reduced-motion`.
+There are six user-provided original Lojay portraits. The high-resolution orange portrait is the main hero; smaller portraits are displayed in a thumbnail collage **at or below their useful natural resolution** rather than stretched and blurred. The UI contains decorative money symbols, falling-cash animations, and an original percussion/bass instrumental soundtrack (`assets/moneylingo-groove.wav`). The **Play Music** button uses a real HTML media element for more reliable playback on iPhones. Music also starts from the first valid **START** tap if the player has not paused it. Mobile browsers block automatic playback before user interaction, so music cannot start until someone taps. Animations respect `prefers-reduced-motion`.
 
 ## Run locally
 
@@ -37,9 +37,9 @@ npm run verify
 - `npm run verify` checks the six photo files, file references, gameplay controls, and content completeness.
 - GitHub Actions runs both commands on every push and pull request.
 
-## Deployment (later)
+## Live deployment
 
-This is a static web app ready for GitHub Pages, Netlify, or Vercel. Keep `index.html`, `src/`, and `assets/` together at the site root. No environment variables, build output, server, or database are required. **Do not deploy until content and user experience are reviewed.**
+This static web app is deployed at https://moneylingo-atm.vercel.app. Keep `index.html`, `src/`, and `assets/` together at the site root. No environment variables, build output, server, or database are required.
 
 ## Replay-limit design
 
@@ -47,7 +47,7 @@ Attempts are persisted under the `moneyLingo.playAttempts.v2` key in browser `lo
 
 ## Facts and media
 
-Trivia is drawn from publicly listed releases and collaborations, especially [LV N ATTN](https://music.apple.com/us/album/lv-n-attn-ep/1564963618), [GANGSTER ROMANTIC](https://music.apple.com/us/album/gangster-romantic/1662531615), [Loveless](https://music.apple.com/us/album/loveless-ep/1732548659), and [XOXO](https://music.apple.com/us/album/xoxo/1826159602). The site does not reproduce song lyrics or stream licensed tracks. The optional original synth groove is NOT the copyrighted recording of Monalisa. Add any artist recording only with appropriate permission/licensing.
+Trivia is drawn from publicly listed releases and collaborations, especially [LV N ATTN](https://music.apple.com/us/album/lv-n-attn-ep/1564963618), [GANGSTER ROMANTIC](https://music.apple.com/us/album/gangster-romantic/1662531615), [Loveless](https://music.apple.com/us/album/loveless-ep/1732548659), and [XOXO](https://music.apple.com/us/album/xoxo/1826159602). The site does not reproduce song lyrics or stream licensed tracks. The bundled instrumental soundtrack is independently synthesized and is NOT Lojay's Monalisa or any other Lojay recording. Add any artist recording only with appropriate permission/licensing.
 
 The six supplied photos are for this fan-made project; their original photographers and rightsholders retain any applicable rights. Do not relicense them as original photographs.
 ## Creators / attribution
