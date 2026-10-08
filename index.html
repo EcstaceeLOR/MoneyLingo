@@ -41,6 +41,12 @@
     .top-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px}.audio-toggle{border:1px solid #5e6b45;border-radius:99px;background:#20291b;color:#e9f5ca;padding:10px 12px;font-size:10px;letter-spacing:.12em;font-weight:900;white-space:nowrap}.audio-toggle:hover{background:#344429}
     .resume-btn{margin-top:8px}.cash-rain{position:fixed;inset:0;z-index:4;pointer-events:none;overflow:hidden}.cash-rain span{position:absolute;top:-10vh;color:#d9ff5e;font-weight:900;text-shadow:0 6px 12px #1117;animation:bankfall var(--dur,3.5s) linear forwards}@keyframes bankfall{to{transform:translate3d(var(--drift,20px),115vh,0) rotate(var(--spin,280deg));opacity:0}}
     .result-glow{animation:glowPulse .9s ease-out}@keyframes glowPulse{0%,100%{filter:none}45%{filter:drop-shadow(0 0 18px #d9ff5e88)}}
+    .brand-stack{display:flex;flex-direction:column;gap:3px;min-width:0;line-height:1.13}.brand-stack>span{white-space:nowrap}.powered{color:var(--lime);font-size:10px;letter-spacing:.19em;font-family:'DM Sans',sans-serif;font-weight:800}
+    .top-actions{margin-left:auto}.creator{color:#e6eacb;font-weight:700}.creator strong{color:var(--lime)}
+    .bottom{align-items:center;border-top:1px solid #4d5838;padding-top:14px}
+    .art-copy{bottom:139px}.art-copy h1{margin-bottom:0}
+    @media(max-width:930px){.art{min-height:295px}}
+    @media(max-width:500px){.art{min-height:235px}.art-copy{bottom:76px}.art-copy h1{font-size:44px}.brand{font-size:15px;letter-spacing:-.035em}.brand-stack>span{white-space:normal}.powered{font-size:9px;letter-spacing:.10em}.top{gap:7px}.top-actions{flex-shrink:0}.art .sticker{font-size:9px}.bottom{justify-content:center;text-align:center}.heading{font-size:39px}.atm-shell{min-height:510px}.screen{padding:22px 16px}}
     @media(max-width:500px){.top-actions{gap:5px}.audio-toggle{font-size:9px;padding:8px 7px}.top-pill{font-size:8px;padding:8px 6px;max-width:147px}.resume-btn{width:100%}}
     @media(prefers-reduced-motion:reduce){.cash-rain span,.result-glow{animation:none!important}}
     @media(max-width:930px){.stage{grid-template-columns:1fr}.art{min-height:340px}.art>img.main-photo{object-position:center 24%}.art-copy{bottom:115px}.art-copy h1{font-size:65px}.portraits{max-width:510px;bottom:18px}.portrait{height:72px}.atm-shell{min-height:570px}}
@@ -51,26 +57,26 @@
 <body>
   <div class="grain" aria-hidden="true"></div><div id="cashRain" class="cash-rain" aria-hidden="true"></div>
   <div class="wrap">
-    <header class="top"><div class="brand"><span class="symbol">₦</span><span>MONEY LINGO <b>ATM</b></span></div><div class="top-actions"><button type="button" id="soundToggle" class="audio-toggle" aria-label="Turn ATM sounds off" aria-pressed="true">♫ SOUND ON</button><span class="top-pill">THE LOJAY FAN EXPERIENCE ✦</span></div></header>
+    <header class="top"><div class="brand"><span class="symbol">₦</span><span class="brand-stack"><span>MONEY LINGO <b>ATM</b></span><small class="powered">POWERED BY LOJAY</small></span></div><div class="top-actions"><button type="button" id="soundToggle" class="audio-toggle" aria-label="Play original Money Lingo-inspired instrumental" aria-pressed="false">♫ PLAY BEAT</button></div></header>
     <main class="stage">
       <aside class="art" aria-label="Lojay portrait collage">
         <img class="main-photo" src="assets/lojay-1.jpeg" alt="Lojay in an orange-lit portrait" width="1124" height="1405" decoding="async">
-        <span class="sticker">FAN-MADE / NO REAL CASH</span><span class="dollar d1" aria-hidden="true">₦</span><span class="dollar d2" aria-hidden="true">$</span><span class="dollar d3" aria-hidden="true">💸</span>
-        <div class="art-copy"><p class="minor">THE ONE LANGUAGE WE UNDERSTAND</p><h1>MONEY<br><span>LINGO.</span></h1><p>Five questions. One secret PIN. A million in virtual fan cash.</p></div>
+        <span class="sticker">FAN EDITION</span><span class="dollar d1" aria-hidden="true">₦</span><span class="dollar d2" aria-hidden="true">$</span><span class="dollar d3" aria-hidden="true">💸</span>
+        <div class="art-copy"><h1>MONEY<br><span>LINGO.</span></h1></div>
         <div class="portraits" aria-hidden="true"><img class="portrait" src="assets/lojay-2.jpeg" alt="" width="475" height="645"><img class="portrait" src="assets/lojay-3.jpeg" alt="" width="491" height="407"><img class="portrait" src="assets/lojay-4.jpeg" alt="" width="554" height="554"><img class="portrait" src="assets/lojay-5.jpeg" alt="" width="427" height="640"><img class="portrait" src="assets/lojay-6.jpeg" alt="" width="400" height="400"></div>
       </aside>
       <div class="atm-shell">
-        <div class="atm-label"><span>LM-001 · LOJAY FAN BANK</span><span class="online"><i class="led"></i> SYSTEM ONLINE</span></div>
+        <div class="atm-label"><span>LM-001 · FAN ATM</span><span class="online"><i class="led"></i> ONLINE</span></div>
         <div class="screen" aria-live="polite">
-          <section class="scene on" id="welcome"><p class="eyebrow">01 / Welcome to the vault</p><h2 class="heading">SPEAK<br><i>MONEY</i><br>LINGO.</h2><p class="sub">This ATM only understands one language. Have you got what it takes to unlock the vault?</p><label class="label" for="playerName">Name on your receipt</label><div class="fieldrow"><input class="field" id="playerName" maxlength="28" placeholder="Enter your name" autocomplete="nickname"><button class="btn primary" id="startBtn">START →</button></div><p class="fine attempt-info" id="attemptInfo" role="status"></p><button id="resumeBtn" class="btn secondary resume-btn" type="button" hidden>↗ RESUME LAST SESSION</button><div class="notice error" id="nameNotice" hidden></div><p class="fine">Just for fun. No financial information or real cash required.</p></section>
-          <section class="scene" id="select"><p class="eyebrow">02 / Choose your transaction</p><h2 class="heading">WHAT DO<br>YOU <i>WANT?</i></h2><p class="sub">One answer opens this vault. The others don't speak our language.</p><div class="grid" id="transactionGrid"><button class="select" data-type="LOVE"><span>♥</span>LOVE</button><button class="select" data-type="PEACE"><span>✳</span>PEACE</button><button class="select" data-type="SEX"><span>♡</span>SEX</button><button class="select" data-type="HAPPINESS"><span>☀</span>HAPPINESS</button><button class="select" data-type="HEARTBREAK"><span>↘</span>HEARTBREAK</button><button class="select money" data-type="MONEY"><span>💰</span>MONEY</button></div><div class="notice" id="transactionNotice" role="status" hidden></div><button class="btn secondary" id="backToWelcome" style="margin-top:14px" type="button">← CHANGE NAME</button></section>
-          <section class="scene" id="pin"><p class="eyebrow">03 / Security checkpoint</p><h2 class="heading">WHAT'S THE<br><i>SECRET?</i></h2><p class="sub">Enter the five-letter code to prove you speak Money Lingo.</p><label class="label" for="pinInput">PIN · Five letters</label><div class="fieldrow"><input class="field pin" id="pinInput" maxlength="5" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="•••••"><button class="btn primary" id="pinBtn">UNLOCK →</button></div><div class="hint">💡 <b>HINT:</b> My songs include Monalisa, Leader, and Tonongo.</div><div class="notice" id="pinNotice" role="status" hidden></div><button class="btn secondary" id="backToChoices" style="margin-top:14px" type="button">← BACK TO OPTIONS</button></section>
+          <section class="scene on" id="welcome"><p class="eyebrow">01 / Welcome</p><h2 class="heading">READY TO<br><i>CASH OUT?</i></h2><p class="sub">Five questions. Up to $1,000,000 in virtual fan cash.</p><label class="label" for="playerName">Name on your receipt</label><div class="fieldrow"><input class="field" id="playerName" maxlength="28" placeholder="Enter your name" autocomplete="nickname"><button class="btn primary" id="startBtn">START →</button></div><p class="fine attempt-info" id="attemptInfo" role="status"></p><button id="resumeBtn" class="btn secondary resume-btn" type="button" hidden>↗ RESUME LAST SESSION</button><div class="notice error" id="nameNotice" hidden></div></section>
+          <section class="scene" id="select"><p class="eyebrow">02 / Choose your transaction</p><h2 class="heading">WHAT DO<br>YOU <i>WANT?</i></h2><p class="sub">Choose wisely. Only one gets approved.</p><div class="grid" id="transactionGrid"><button class="select" data-type="LOVE"><span>♥</span>LOVE</button><button class="select" data-type="PEACE"><span>✳</span>PEACE</button><button class="select" data-type="SEX"><span>♡</span>SEX</button><button class="select" data-type="HAPPINESS"><span>☀</span>HAPPINESS</button><button class="select" data-type="HEARTBREAK"><span>↘</span>HEARTBREAK</button><button class="select money" data-type="MONEY"><span>💰</span>MONEY</button></div><div class="notice" id="transactionNotice" role="status" hidden></div><button class="btn secondary" id="backToWelcome" style="margin-top:14px" type="button">← CHANGE NAME</button></section>
+          <section class="scene" id="pin"><p class="eyebrow">03 / Security checkpoint</p><h2 class="heading">WHAT'S THE<br><i>SECRET?</i></h2><p class="sub">Enter the secret five-letter PIN.</p><label class="label" for="pinInput">PIN · Five letters</label><div class="fieldrow"><input class="field pin" id="pinInput" maxlength="5" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="•••••"><button class="btn primary" id="pinBtn">UNLOCK →</button></div><div class="hint">💡 <b>HINT:</b> My songs include Monalisa, Leader, and Tonongo.</div><div class="notice" id="pinNotice" role="status" hidden></div><button class="btn secondary" id="backToChoices" style="margin-top:14px" type="button">← BACK TO OPTIONS</button></section>
           <section class="scene" id="quiz"><div class="progress-meta"><span id="quizProgress">QUESTION 1/5</span><span id="quizCash">$0 UNLOCKED</span></div><div class="track" aria-hidden="true"><div class="fill" id="progressFill"></div></div><p class="eyebrow">04 / Know your Lojay</p><h2 class="question" id="questionText"></h2><div class="answers" id="answerGrid"></div><div class="notice" id="answerNotice" role="status" hidden></div><button class="btn primary" id="nextBtn" style="margin-top:18px" hidden>CONTINUE →</button></section>
-          <section class="scene" id="result"><p class="eyebrow">05 / Your fan receipt is ready</p><h2 class="heading">YOU JUST<br><i>CASHED</i><br>OUT.</h2><span class="pill" id="fanTier"></span><p class="fine" style="margin-top:25px">YOUR VIRTUAL FAN CASH</p><div class="cash" id="resultMoney">$0</div><div class="scoreline"><strong id="resultPercent">0%</strong><span id="resultDetail">0 of 5 correct</span></div><div class="cta-row"><button class="btn primary" id="receiptBtn">↓ DOWNLOAD RECEIPT</button><button class="btn secondary" id="againBtn">↻ PLAY AGAIN</button><button class="btn secondary" id="shareBtn">↗ SHARE RECEIPT</button></div><p class="fine attempt-info" id="replayInfo" role="status"></p><p class="fine warning">Virtual fan score only. Nothing here is payable or redeemable.</p><div id="shareNotice" class="notice" role="status" hidden></div></section>
+          <section class="scene" id="result"><p class="eyebrow">05 / Your fan receipt is ready</p><h2 class="heading">YOU JUST<br><i>CASHED</i><br>OUT.</h2><span class="pill" id="fanTier"></span><p class="fine" style="margin-top:25px">YOUR VIRTUAL FAN CASH</p><div class="cash" id="resultMoney">$0</div><div class="scoreline"><strong id="resultPercent">0%</strong><span id="resultDetail">0 of 5 correct</span></div><div class="cta-row"><button class="btn primary" id="receiptBtn">↓ DOWNLOAD RECEIPT</button><button class="btn secondary" id="againBtn">↻ PLAY AGAIN</button><button class="btn secondary" id="shareBtn">↗ SHARE RECEIPT</button></div><p class="fine attempt-info" id="replayInfo" role="status"></p><div id="shareNotice" class="notice" role="status" hidden></div></section>
         </div>
       </div>
     </main>
-    <footer class="bottom"><span>© 2026 MONEY LINGO ATM — INDEPENDENT FAN-MADE TRIBUTE.</span><span><strong>NOT A REAL ATM.</strong> No actual winnings, payouts or Lojay endorsement.</span></footer>
+    <footer class="bottom"><span class="creator">CREATED BY <strong>BIG DEMS</strong> — @dems_the penlord on X</span><span>FAN-MADE · VIRTUAL CASH ONLY · NOT OFFICIAL</span></footer>
   </div>
   <script type="module">
   import { createRound,calculateWinnings } from "./src/questions.js";
@@ -78,15 +84,58 @@
   const $=id=>document.getElementById(id);
   const sceneIds=['welcome','select','pin','quiz','result'];
   const SESSION_KEY='moneyLingo.currentSession.v1';
-  let soundsEnabled=true;
+  // Optional original synth groove; no commercial sound recording is bundled.
+  let soundsEnabled=false, audioContext=null, musicTimer=null, nextBarAt=0;
+  const tempoBeat=60/100;
+  const AudioEngine=window.AudioContext||window.webkitAudioContext;
+  function tone(frequency,when,duration,volume=.035,type='sine'){
+    if(!audioContext)return;
+    const osc=audioContext.createOscillator(),envelope=audioContext.createGain();
+    osc.type=type;osc.frequency.setValueAtTime(frequency,when);
+    envelope.gain.setValueAtTime(.0001,when);
+    envelope.gain.exponentialRampToValueAtTime(Math.max(volume,.001),when+.025);
+    envelope.gain.exponentialRampToValueAtTime(.0001,when+duration);
+    osc.connect(envelope);envelope.connect(audioContext.destination);
+    osc.start(when);osc.stop(when+duration+.01);
+  }
+  function scheduleGroove(){
+    if(!soundsEnabled||!audioContext)return;
+    const start=Math.max(nextBarAt,audioContext.currentTime+.065);
+    // Independent, original soft electronic lounge groove — not "Monalisa".
+    const melody=[293.66,349.23,440,392,349.23,293.66,261.63,293.66];
+    for(let i=0;i<8;i++){
+      const t=start+i*tempoBeat;
+      tone(melody[i],t+.14,.23,.016,'triangle');
+      if(i%2===0)tone(i<4?146.83:130.81,t,.24,.024,'sine');
+      tone(880,t+.32,.055,.003,'sine');
+    }
+    nextBarAt=start+8*tempoBeat;
+  }
+  async function toggleGroove(){
+    soundsEnabled=!soundsEnabled;
+    if(soundsEnabled){
+      if(!AudioEngine){soundsEnabled=false;toast('nameNotice','Audio is not supported in this browser.',true);return;}
+      try{audioContext=new AudioEngine();await audioContext.resume();nextBarAt=audioContext.currentTime+.07;scheduleGroove();musicTimer=setInterval(scheduleGroove,8*tempoBeat*1000-95)}
+      catch{soundsEnabled=false;}
+    }else{
+      clearInterval(musicTimer);musicTimer=null;
+      if(audioContext){const ctx=audioContext;audioContext=null;ctx.close().catch(()=>{});}
+    }
+    $('soundToggle').textContent=soundsEnabled?'♫ BEAT ON':'♫ PLAY BEAT';
+    $('soundToggle').setAttribute('aria-pressed',String(soundsEnabled));
+    $('soundToggle').setAttribute('aria-label',soundsEnabled?'Stop instrumental':'Play original instrumental');
+  }
   let name='',round=[],questionIndex=0,correct=0,answered=false,selectedAnswer=null,transitioning=false;
   const money=n=>'$'+n.toLocaleString('en-US');
   const show=(id)=>{for(const page of sceneIds)$(page).classList.toggle('on',page===id);window.scrollTo(0,0)};
   function toast(id,message,error=false){const el=$(id);el.hidden=false;el.textContent=message;el.classList.toggle('error',error)}
-  function sound(ok){if(!soundsEnabled)return;try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;const ac=new AC(),o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=ok?870:230;o.connect(g);g.connect(ac.destination);g.gain.value=.035;o.start();o.stop(ac.currentTime+.08);o.onended=()=>ac.close()}catch{}}
-  $('soundToggle').addEventListener('click',()=>{soundsEnabled=!soundsEnabled;$('soundToggle').textContent=soundsEnabled?'♫ SOUND ON':'♫ SOUND OFF';$('soundToggle').setAttribute('aria-pressed',String(soundsEnabled));$('soundToggle').setAttribute('aria-label',soundsEnabled?'Turn ATM sounds off':'Turn ATM sounds on')});
+  function sound(ok){
+    if(!soundsEnabled||!audioContext)return;
+    tone(ok?784:220,audioContext.currentTime+.01,.09,.024,ok?'triangle':'sine');
+  }
+  $('soundToggle').addEventListener('click',toggleGroove);
   const remaining=()=>{const used=getAttemptCount(localStorage);return used===null?null:Math.max(0,MAX_ATTEMPTS-used)};
-  function updateAllowance(){const left=remaining();$('startBtn').disabled=left===null||left===0;$('attemptInfo').textContent=left===null?'Enable browser storage to play.':left===0?'All three plays have been used on this browser.':left+' of 3 attempts remaining · Your first play + up to two replays.'}
+  function updateAllowance(){const left=remaining();$('startBtn').disabled=left===null||left===0;$('attemptInfo').textContent=left===null?'Enable browser storage to play.':left===0?'Both plays have been used on this browser.':left+' '+(left===1?'play':'plays')+' left · One retry maximum.'}
   function saveSession(status='quiz'){
     try{localStorage.setItem(SESSION_KEY,JSON.stringify({status,name,round,questionIndex,correct,answered,selectedAnswer}));}catch{}
   }
@@ -115,7 +164,7 @@
   $('backToChoices').addEventListener('click',()=>{transitioning=false;show('select')});
   function attemptPin(){if(transitioning)return;if($('pinInput').value.trim().toUpperCase()!=='LOJAY'){toast('pinNotice','ACCESS DENIED ✕ Try again — the answer is in the hint.',true);sound(false);$('pinInput').select();return;}toast('pinNotice','ACCESS GRANTED ✓  You speak the language.',false);sound(true);transitioning=true;setTimeout(()=>{transitioning=false;startQuiz()},450)}
   $('pinBtn').addEventListener('click',attemptPin);$('pinInput').addEventListener('keydown',e=>{if(e.key==='Enter')attemptPin()});
-  function startQuiz(){const claim=claimAttempt(localStorage);if(!claim.allowed){const msg=claim.reason==='storage'?'Please enable browser storage to play.':'You have used all three attempts in this browser.';if($('result').classList.contains('on')){$('replayInfo').textContent=msg;$('againBtn').hidden=true}else{toast('pinNotice',msg,true)}updateAllowance();return;}updateAllowance();round=createRound(5);questionIndex=0;correct=0;selectedAnswer=null;saveSession();show('quiz');renderQuestion()}
+  function startQuiz(){const claim=claimAttempt(localStorage);if(!claim.allowed){const msg=claim.reason==='storage'?'Please enable browser storage to play.':'You have used both plays in this browser.';if($('result').classList.contains('on')){$('replayInfo').textContent=msg;$('againBtn').hidden=true}else{toast('pinNotice',msg,true)}updateAllowance();return;}updateAllowance();round=createRound(5);questionIndex=0;correct=0;selectedAnswer=null;saveSession();show('quiz');renderQuestion()}
   function renderQuestion(restoring=false){if(!restoring){answered=false;selectedAnswer=null;saveSession();}const q=round[questionIndex];$('quizProgress').textContent='QUESTION '+(questionIndex+1)+'/5';$('quizCash').textContent=money(correct*200000)+' UNLOCKED';$('progressFill').style.width=((questionIndex+1)*20)+'%';$('questionText').textContent=q.question;$('answerGrid').replaceChildren();$('answerNotice').hidden=true;$('nextBtn').hidden=true;$('nextBtn').textContent=questionIndex===4?'COLLECT VIRTUAL CASH →':'CONTINUE →';for(const a of q.options){const button=document.createElement('button');button.className='option';button.type='button';button.textContent=a;button.addEventListener('click',()=>answer(a));$('answerGrid').append(button)}
     if(restoring && answered && selectedAnswer!==null){
       const ok=selectedAnswer===q.correct;
@@ -126,7 +175,7 @@
   }
   function answer(value){if(answered)return;answered=true;selectedAnswer=value;const q=round[questionIndex];const ok=value===q.correct;if(ok)correct++;saveSession();sound(ok);for(const btn of $('answerGrid').children){btn.disabled=true;if(btn.textContent===q.correct)btn.classList.add('right');else if(btn.textContent===value)btn.classList.add('wrong')}toast('answerNotice',ok?'CORRECT ✓  +$200,000 virtual cash':'NOT QUITE! The answer was '+q.correct+'.',!ok);$('quizCash').textContent=money(correct*200000)+' UNLOCKED';$('nextBtn').hidden=false}
   $('nextBtn').addEventListener('click',()=>{if(!answered)return;if(questionIndex<4){questionIndex++;renderQuestion()}else renderResult()});
-  function renderResult(){saveSession('result');const score=calculateWinnings(correct);$('resultMoney').textContent=money(score.dollars);$('resultPercent').textContent=score.percent+'%';$('resultDetail').textContent=score.correct+' of 5 questions correct';$('fanTier').textContent=score.percent===100?'✦ LEGENDARY LOJAY FAN':score.percent>=60?'✦ MONEY LINGO CERTIFIED':score.percent>0?'✦ RISING LOJAY FAN':'✦ FUTURE LOJAY FAN';const left=remaining();$('againBtn').hidden=left===null||left===0;$('againBtn').textContent='↻ PLAY AGAIN ('+left+' LEFT)';$('replayInfo').textContent=left===0?'All attempts used. You may still download your receipt.':left+' replay'+(left===1?'':'s')+' remaining. Each quiz draws five new random questions.';show('result');cashShower()}
+  function renderResult(){saveSession('result');const score=calculateWinnings(correct);$('resultMoney').textContent=money(score.dollars);$('resultPercent').textContent=score.percent+'%';$('resultDetail').textContent=score.correct+' of 5 questions correct';$('fanTier').textContent=score.percent===100?'✦ LEGENDARY LOJAY FAN':score.percent>=60?'✦ MONEY LINGO CERTIFIED':score.percent>0?'✦ RISING LOJAY FAN':'✦ FUTURE LOJAY FAN';const left=remaining();$('againBtn').hidden=left===null||left===0;$('againBtn').textContent='↻ PLAY AGAIN ('+left+' LEFT)';$('replayInfo').textContent=left===0?'No replays left. Download your receipt!':'One final replay available.';show('result');cashShower()}
   $('againBtn').addEventListener('click',startQuiz);
   function cashShower(){
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -146,12 +195,12 @@
     const image=document.querySelector('.main-photo');if(image.complete&&image.naturalWidth){const scale=Math.max(900/image.naturalWidth,400/image.naturalHeight),sw=900/scale,sh=400/scale;ctx.save();ctx.globalAlpha=.7;ctx.drawImage(image,(image.naturalWidth-sw)/2,Math.max(0,(image.naturalHeight-sh)*.18),sw,sh,0,18,900,400);ctx.restore()}
     const grad=ctx.createLinearGradient(0,18,0,440);grad.addColorStop(0,'#0e140a22');grad.addColorStop(1,'#10160d');ctx.fillStyle=grad;ctx.fillRect(0,18,900,430);
     const t=(text,x,y,size,color='#f3f5df',weight=700)=>{ctx.font=weight+' '+size+'px Arial, sans-serif';ctx.fillStyle=color;ctx.fillText(text,x,y)};
-    t('MONEY LINGO ATM',52,108,42,'#d9ff5e',800);t('THE LOJAY FAN CHALLENGE',52,157,19);t('TRANSACTION // VIRTUAL FAN CASH',52,380,19,'#eac579');
+    t('MONEY LINGO ATM',52,108,42,'#d9ff5e',800);t('POWERED BY LOJAY',52,157,19,'#efc87a');t('TRANSACTION // VIRTUAL FAN CASH',52,380,19,'#eac579');
     ctx.strokeStyle='#7a9064';ctx.setLineDash([12,10]);ctx.beginPath();ctx.moveTo(52,488);ctx.lineTo(848,488);ctx.stroke();ctx.setLineDash([]);
     t('RECEIPT FOR',52,550,21,'#c0cdb4');ctx.font='800 49px Arial';ctx.fillStyle='#f9fbe9';ctx.fillText(name.toUpperCase(),52,620,790);
     t('FAN KNOWLEDGE',52,724,21,'#c0cdb4');t(correct+'/5 · '+correct*20+'%',52,786,48,'#efc87a',800);
     t('AMOUNT UNLOCKED',52,893,21,'#c0cdb4');t(money(correct*200000),52,976,85,'#d9ff5e',800);
-    ctx.beginPath();ctx.moveTo(52,1050);ctx.lineTo(848,1050);ctx.stroke();t('YOU SPEAK MONEY LINGO!',52,1112,32);t('FICTIONAL REWARD — NOT REDEEMABLE',52,1170,21,'#efc87a',800);t('Fan-made tribute. Not a bank or an official Lojay promotion.',52,1220,17,'#b1c09f',500);t('#MONEYLINGO    LOJAY FAN CHALLENGE',52,1280,18,'#d9ff5e',800);
+    ctx.beginPath();ctx.moveTo(52,1050);ctx.lineTo(848,1050);ctx.stroke();t('YOU SPEAK MONEY LINGO!',52,1112,32);t('FICTIONAL REWARD — NOT REDEEMABLE',52,1170,21,'#efc87a',800);t('Fan-made tribute. Not a bank or an official Lojay promotion.',52,1220,17,'#b1c09f',500);t('CREATED BY BIG DEMS',52,1270,19,'#d9ff5e',800);t('@dems_the penlord on X',52,1300,16,'#c8d6b9',700);
     return c;
   }
   const receiptName=()=> 'MoneyLingo-'+name.replace(/[^a-z\d]+/gi,'-')+'-'+correct*20+'percent.png';
