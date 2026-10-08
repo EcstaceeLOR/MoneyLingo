@@ -12,8 +12,8 @@ assert.match(html, /<script type="module">/, 'Browser module script missing');
 assert.match(html, /src\/questions\.js/, 'Questions module missing');
 assert.match(html, /src\/attempts\.js/, 'Attempts module missing');
 assert.equal(QUESTION_BANK.length, 20);
-assert.equal(MAX_ATTEMPTS, 3);
-assert.equal(MAX_REPLAYS, 2);
+assert.equal(MAX_ATTEMPTS, 2);
+assert.equal(MAX_REPLAYS, 1);
 for (let i=1;i<=6;i++) {
  const filename = `assets/lojay-${i}.jpeg`;
  assert.ok(existsSync(new URL(`../${filename}`, import.meta.url)), `Missing original photo: ${filename}`);
@@ -25,4 +25,4 @@ for (let i=0;i<30;i++) {
  assert.equal(quiz.length,5);
  assert.equal(new Set(quiz.map(q=>q.id)).size,5,'Duplicate questions within round');
 }
-console.log('✓ Static release checks passed: 6 portraits, 20 questions, 3-attempt cap, receipts and share controls.');
+console.log('✓ Static release checks passed: 6 portraits, 20 questions, 2-play cap, receipts and share controls.');
