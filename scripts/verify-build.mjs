@@ -7,6 +7,14 @@ const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 assert.match(html, /<title>Money Lingo ATM/i, 'Missing page title');
 assert.match(html, /id="receiptBtn"/, 'Receipt download control missing');
 assert.match(html, /id="shareBtn"/, 'Receipt share control missing');
+assert.match(html, /id="backingMusic"/, 'Background music element missing');
+assert.match(html, /id="soundToggle"/, 'Sound control missing');
+assert.match(html, /\.play\(\)/, 'Audio playback action missing');
+const wav = readFileSync(new URL('../assets/moneylingo-groove.wav', import.meta.url));
+assert.ok(wav.length > 200_000,'Soundtrack is too short or missing');
+assert.equal(wav.toString('ascii',0,4),'RIFF','Soundtrack is not a RIFF WAV');
+assert.equal(wav.toString('ascii',8,12),'WAVE','Soundtrack WAV header invalid');
+
 assert.match(html, /id="resumeBtn"/, 'Resume control missing');
 assert.match(html, /<script type="module">/, 'Browser module script missing');
 assert.match(html, /src\/questions\.js/, 'Questions module missing');
