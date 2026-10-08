@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Unofficial Lojay Money Lingo fan quiz",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "verify": "node scripts/verify-build.mjs"
   }
 }
