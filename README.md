@@ -1,5 +1,11 @@
 # Money Lingo ATM 💸
 
+### 🌍 [▶ PLAY MONEY LINGO ATM — LIVE WEBSITE](https://moneylingo-atm.vercel.app/)
+
+**Live demo:** https://moneylingo-atm.vercel.app/  
+**Status:** Deployed on Vercel · Mobile-friendly · Interactive Lojay fan challenge
+
+
 A playable, mobile-first **unofficial Lojay fan tribute** inspired by *Money Lingo*. Built with vanilla HTML, CSS and JavaScript, no backend or API key required.
 
 **This is not a real ATM.** Every displayed amount is **fictional, non-redeemable fan cash**. There are no payments, deposits, wagers, prizes, or financial-account connections. The project is not affiliated with or endorsed by Lojay.
