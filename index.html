@@ -38,7 +38,11 @@
     .cash{font:700 clamp(39px,5vw,65px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.08em;color:var(--lime);margin:9px 0 18px}.pill{display:inline-block;color:var(--lime);background:#314e27;padding:10px 13px;border-radius:50px;font-size:11px;font-weight:800}.scoreline{color:#b7c8af;display:flex;align-items:center;gap:13px;margin:10px 0 28px}.scoreline strong{color:var(--gold);font-size:24px}.cta-row{display:flex;gap:9px;flex-wrap:wrap}.attempt-info{color:#ebd299!important}
     .bottom{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:10px;color:#a2ae92;line-height:1.5}.bottom strong{color:var(--lime)}
 
-    .top-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px}.audio-toggle{border:1px solid #5e6b45;border-radius:99px;background:#20291b;color:#e9f5ca;padding:10px 12px;font-size:10px;letter-spacing:.12em;font-weight:900;white-space:nowrap}.audio-toggle:hover{background:#344429}
+    .top-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px}.audio-toggle{border:1px solid #5e6b45;border-radius:99px;background:#20291b;color:#e9f5ca;padding:10px 12px;font-size:10px;letter-spacing:.12em;font-weight:900;white-space:nowrap}.audio-toggle:hover{background:#d9ff5e;color:#1a260e}
+    .audio-toggle{background:#c9f64f;color:#15220b;border-color:#ddff87;font-size:11px;padding:12px 15px;box-shadow:0 0 0 2px #c9f64f13,0 3px 14px #c9f64f1f}
+    .audio-toggle.playing{background:#293b1c;color:#eaffc1;border-color:#d9ff5e}
+    .audio-toggle.playing:after{content:' ●';color:#d9ff5e;animation:audioPulse 1.2s ease-in-out infinite}
+    @keyframes audioPulse{50%{opacity:.25}}
     .resume-btn{margin-top:8px}.cash-rain{position:fixed;inset:0;z-index:4;pointer-events:none;overflow:hidden}.cash-rain span{position:absolute;top:-10vh;color:#d9ff5e;font-weight:900;text-shadow:0 6px 12px #1117;animation:bankfall var(--dur,3.5s) linear forwards}@keyframes bankfall{to{transform:translate3d(var(--drift,20px),115vh,0) rotate(var(--spin,280deg));opacity:0}}
     .result-glow{animation:glowPulse .9s ease-out}@keyframes glowPulse{0%,100%{filter:none}45%{filter:drop-shadow(0 0 18px #d9ff5e88)}}
     .brand-stack{display:flex;flex-direction:column;gap:3px;min-width:0;line-height:1.13}.brand-stack>span{white-space:nowrap}.powered{color:var(--lime);font-size:10px;letter-spacing:.19em;font-family:'DM Sans',sans-serif;font-weight:800}
@@ -48,7 +52,7 @@
     @media(max-width:930px){.art{min-height:295px}}
     @media(max-width:500px){.art{min-height:235px}.art-copy{bottom:76px}.art-copy h1{font-size:44px}.brand{font-size:15px;letter-spacing:-.035em}.brand-stack>span{white-space:normal}.powered{font-size:9px;letter-spacing:.10em}.top{gap:7px}.top-actions{flex-shrink:0}.art .sticker{font-size:9px}.bottom{justify-content:center;text-align:center}.heading{font-size:39px}.atm-shell{min-height:510px}.screen{padding:22px 16px}}
     @media(max-width:500px){.top-actions{gap:5px}.audio-toggle{font-size:9px;padding:8px 7px}.top-pill{font-size:8px;padding:8px 6px;max-width:147px}.resume-btn{width:100%}}
-    @media(prefers-reduced-motion:reduce){.cash-rain span,.result-glow{animation:none!important}}
+    @media(prefers-reduced-motion:reduce){.cash-rain span,.result-glow,.audio-toggle.playing:after{animation:none!important}}
     @media(max-width:930px){.stage{grid-template-columns:1fr}.art{min-height:340px}.art>img.main-photo{object-position:center 24%}.art-copy{bottom:115px}.art-copy h1{font-size:65px}.portraits{max-width:510px;bottom:18px}.portrait{height:72px}.atm-shell{min-height:570px}}
     @media(max-width:500px){.wrap{padding:13px 12px;gap:12px}.brand .symbol{width:33px;height:33px;font-size:24px}.brand{font-size:17px}.top-pill{font-size:8px;padding:8px}.stage{gap:11px}.art{min-height:265px;border-radius:18px}.art>img.main-photo{object-position:center 16%}.sticker{top:10px;left:10px;padding:8px;font-size:9px}.art-copy{left:15px;right:15px;bottom:76px}.art-copy h1{font-size:45px;margin-bottom:8px}.art-copy .minor{font-size:8px;margin-bottom:8px}.art-copy p{font-size:10px;margin:0}.portrait{height:48px;border-radius:7px}.portraits{left:13px;right:13px;bottom:11px;gap:5px}.dollar{font-size:22px}.atm-shell{padding:10px;border-radius:20px;min-height:555px}.atm-label{font-size:9px;padding:4px 7px}.screen{border-width:4px;border-radius:15px;padding:25px 16px}.heading{font-size:45px}.sub{font-size:14px}.grid{gap:8px}.select{padding:10px;min-height:77px;font-size:13px}.answers{grid-template-columns:1fr}.option{min-height:52px}.fieldrow{flex-direction:column}.btn{min-height:50px}.field.pin{max-width:none}.bottom{font-size:9px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
@@ -57,7 +61,8 @@
 <body>
   <div class="grain" aria-hidden="true"></div><div id="cashRain" class="cash-rain" aria-hidden="true"></div>
   <div class="wrap">
-    <header class="top"><div class="brand"><span class="symbol">₦</span><span class="brand-stack"><span>MONEY LINGO <b>ATM</b></span><small class="powered">POWERED BY LOJAY</small></span></div><div class="top-actions"><button type="button" id="soundToggle" class="audio-toggle" aria-label="Play original Money Lingo-inspired instrumental" aria-pressed="false">♫ PLAY BEAT</button></div></header>
+    <header class="top"><div class="brand"><span class="symbol">₦</span><span class="brand-stack"><span>MONEY LINGO <b>ATM</b></span><small class="powered">POWERED BY LOJAY</small></span></div><div class="top-actions"><button type="button" id="soundToggle" class="audio-toggle" aria-label="Play the Money Lingo ATM original soundtrack" aria-pressed="false">♫ PLAY MUSIC</button></div></header>
+    <audio id="backingMusic" src="assets/moneylingo-groove.wav" preload="auto" loop playsinline></audio>
     <main class="stage">
       <aside class="art" aria-label="Lojay portrait collage">
         <img class="main-photo" src="assets/lojay-1.jpeg" alt="Lojay in an orange-lit portrait" width="1124" height="1405" decoding="async">
@@ -84,56 +89,67 @@
   const $=id=>document.getElementById(id);
   const sceneIds=['welcome','select','pin','quiz','result'];
   const SESSION_KEY='moneyLingo.currentSession.v1';
-  // Optional original synth groove; no commercial sound recording is bundled.
-  let soundsEnabled=false, audioContext=null, musicTimer=null, nextBarAt=0;
-  const tempoBeat=60/100;
-  const AudioEngine=window.AudioContext||window.webkitAudioContext;
-  function tone(frequency,when,duration,volume=.035,type='sine'){
-    if(!audioContext)return;
-    const osc=audioContext.createOscillator(),envelope=audioContext.createGain();
-    osc.type=type;osc.frequency.setValueAtTime(frequency,when);
-    envelope.gain.setValueAtTime(.0001,when);
-    envelope.gain.exponentialRampToValueAtTime(Math.max(volume,.001),when+.025);
-    envelope.gain.exponentialRampToValueAtTime(.0001,when+duration);
-    osc.connect(envelope);envelope.connect(audioContext.destination);
-    osc.start(when);osc.stop(when+duration+.01);
+  // Licensed commercial songs are not bundled; the soundtrack is original and playable through HTMLAudioElement.
+  // HTML media has much better iOS Safari/silent-switch behavior than relying on quiet Web Audio oscillators.
+  const backingMusic=$('backingMusic');
+  const musicBtn=$('soundToggle');
+  backingMusic.volume=1;
+  let userStoppedMusic=false;
+  let effectContext=null;
+  function musicButtonUI(){
+    const isPlaying=!backingMusic.paused && !backingMusic.ended;
+    musicBtn.textContent=isPlaying?'❚❚ PAUSE MUSIC':'♫ PLAY MUSIC';
+    musicBtn.setAttribute('aria-pressed',String(isPlaying));
+    musicBtn.setAttribute('aria-label',isPlaying?'Pause original ATM soundtrack':'Play original ATM soundtrack');
+    musicBtn.classList.toggle('playing',isPlaying);
+    musicBtn.title=isPlaying?'Tap to pause the music':'Tap to play the original ATM soundtrack';
   }
-  function scheduleGroove(){
-    if(!soundsEnabled||!audioContext)return;
-    const start=Math.max(nextBarAt,audioContext.currentTime+.065);
-    // Independent, original soft electronic lounge groove — not "Monalisa".
-    const melody=[293.66,349.23,440,392,349.23,293.66,261.63,293.66];
-    for(let i=0;i<8;i++){
-      const t=start+i*tempoBeat;
-      tone(melody[i],t+.14,.23,.016,'triangle');
-      if(i%2===0)tone(i<4?146.83:130.81,t,.24,.024,'sine');
-      tone(880,t+.32,.055,.003,'sine');
+  function startMusic(){
+    if(!backingMusic.paused)return;
+    try{
+      // The play call MUST happen synchronously during a click/tap to meet mobile autoplay policies.
+      const p=backingMusic.play();
+      if(p?.then)p.then(musicButtonUI).catch(()=>{
+        musicButtonUI();
+        musicBtn.textContent='♫ TAP TO PLAY';
+        musicBtn.title='Sound is blocked. Tap again and check your media volume.';
+      });
+    }catch{
+      musicButtonUI();
+      musicBtn.textContent='♫ TAP TO PLAY';
     }
-    nextBarAt=start+8*tempoBeat;
   }
-  async function toggleGroove(){
-    soundsEnabled=!soundsEnabled;
-    if(soundsEnabled){
-      if(!AudioEngine){soundsEnabled=false;toast('nameNotice','Audio is not supported in this browser.',true);return;}
-      try{audioContext=new AudioEngine();await audioContext.resume();nextBarAt=audioContext.currentTime+.07;scheduleGroove();musicTimer=setInterval(scheduleGroove,8*tempoBeat*1000-95)}
-      catch{soundsEnabled=false;}
-    }else{
-      clearInterval(musicTimer);musicTimer=null;
-      if(audioContext){const ctx=audioContext;audioContext=null;ctx.close().catch(()=>{});}
-    }
-    $('soundToggle').textContent=soundsEnabled?'♫ BEAT ON':'♫ PLAY BEAT';
-    $('soundToggle').setAttribute('aria-pressed',String(soundsEnabled));
-    $('soundToggle').setAttribute('aria-label',soundsEnabled?'Stop instrumental':'Play original instrumental');
-  }
+  musicBtn.addEventListener('click',()=>{
+    if(backingMusic.paused){userStoppedMusic=false;startMusic();}
+    else{userStoppedMusic=true;backingMusic.pause();}
+  });
+  backingMusic.addEventListener('play',musicButtonUI);
+  backingMusic.addEventListener('pause',musicButtonUI);
+  backingMusic.addEventListener('error',()=>{
+    musicBtn.textContent='♫ SOUND UNAVAILABLE';
+    musicBtn.title='Could not load the audio. Please refresh to retry.';
+  });
+  musicButtonUI();
   let name='',round=[],questionIndex=0,correct=0,answered=false,selectedAnswer=null,transitioning=false;
   const money=n=>'$'+n.toLocaleString('en-US');
   const show=(id)=>{for(const page of sceneIds)$(page).classList.toggle('on',page===id);window.scrollTo(0,0)};
   function toast(id,message,error=false){const el=$(id);el.hidden=false;el.textContent=message;el.classList.toggle('error',error)}
   function sound(ok){
-    if(!soundsEnabled||!audioContext)return;
-    tone(ok?784:220,audioContext.currentTime+.01,.09,.024,ok?'triangle':'sine');
+    if(backingMusic.paused)return;
+    try{
+      const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+      if(!effectContext)effectContext=new AC();
+      if(effectContext.state==='suspended')effectContext.resume().catch(()=>{});
+      const t=effectContext.currentTime;
+      const oscillator=effectContext.createOscillator(),volume=effectContext.createGain();
+      oscillator.type='triangle';oscillator.frequency.setValueAtTime(ok?770:230,t);
+      volume.gain.setValueAtTime(.0001,t);
+      volume.gain.exponentialRampToValueAtTime(.06,t+.014);
+      volume.gain.exponentialRampToValueAtTime(.0001,t+.14);
+      oscillator.connect(volume);volume.connect(effectContext.destination);
+      oscillator.start(t);oscillator.stop(t+.15);
+    }catch{}
   }
-  $('soundToggle').addEventListener('click',toggleGroove);
   const remaining=()=>{const used=getAttemptCount(localStorage);return used===null?null:Math.max(0,MAX_ATTEMPTS-used)};
   function updateAllowance(){const left=remaining();$('startBtn').disabled=left===null||left===0;$('attemptInfo').textContent=left===null?'Enable browser storage to play.':left===0?'Both plays have been used on this browser.':left+' '+(left===1?'play':'plays')+' left · One retry maximum.'}
   function saveSession(status='quiz'){
@@ -157,7 +173,7 @@
     }
   }
   updateAllowance();displayResume();
-  function start(){if($('startBtn').disabled)return;name=$('playerName').value.trim().replace(/\s+/g,' ').slice(0,28);if(!name){toast('nameNotice','Enter your name so we can print your receipt.',true);return;}$('nameNotice').hidden=true;show('select')}
+  function start(){if($('startBtn').disabled)return;name=$('playerName').value.trim().replace(/\s+/g,' ').slice(0,28);if(!name){toast('nameNotice','Enter your name so we can print your receipt.',true);return;}if(!userStoppedMusic)startMusic();$('nameNotice').hidden=true;show('select')}
   $('startBtn').addEventListener('click',start);$('playerName').addEventListener('keydown',e=>{if(e.key==='Enter')start()});
   $('transactionGrid').addEventListener('click',e=>{const btn=e.target.closest('button[data-type]');if(!btn||transitioning)return;const ok=btn.dataset.type==='MONEY';sound(ok);toast('transactionNotice',ok?'TRANSACTION ACCEPTED ✓  Money Lingo recognized.':({LOVE:'LOVE? Nice try. This machine only loves credit alerts. 💸',SEX:'REQUEST DENIED. Our only chemistry is with money. 💰',HAPPINESS:'HAPPINESS? Try the sound of a credit alert. 💚',PEACE:'PEACE OF MIND? Only the balance can provide that. 🏦',HEARTBREAK:'HEARTBREAK DECLINED. We are only breaking poverty. 🔒'}[btn.dataset.type]||'TRANSACTION DECLINED ✕  This ATM only speaks Money Lingo.'),!ok);if(ok){transitioning=true;setTimeout(()=>{transitioning=false;show('pin');$('pinInput').focus()},650)}});
   $('backToWelcome').addEventListener('click',()=>{transitioning=false;show('welcome')});
