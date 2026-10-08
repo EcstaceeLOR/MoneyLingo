@@ -42,3 +42,46 @@ test("shuffle does not mutate question bank", () => {
   shuffle(QUESTION_BANK);
   assert.deepEqual(QUESTION_BANK.map(q => q.id), original);
 });
+
+import {
+  claimAttempt, getAttemptCount, MAX_ATTEMPTS, MAX_REPLAYS, ATTEMPT_STORAGE_KEY,
+} from "../src/attempts.js";
+
+function fakeStorage() {
+  const map = new Map();
+  return {
+    getItem: key => map.has(key) ? map.get(key) : null,
+    setItem: (key, value) => map.set(key, value),
+  };
+}
+
+test("one first round and exactly two replays are permitted", () => {
+  const storage = fakeStorage();
+  assert.equal(MAX_ATTEMPTS, 3);
+  assert.equal(MAX_REPLAYS, 2);
+  assert.equal(getAttemptCount(storage), 0);
+  assert.deepEqual([claimAttempt(storage), claimAttempt(storage), claimAttempt(storage)].map(x => x.allowed), [true, true, true]);
+  assert.equal(getAttemptCount(storage), 3);
+  assert.equal(claimAttempt(storage).allowed, false);
+  assert.equal(claimAttempt(storage).reason, "limit");
+});
+
+test("attempt count persists across storage readers (reload behavior)", () => {
+  const storage = fakeStorage();
+  claimAttempt(storage);
+  assert.equal(storage.getItem(ATTEMPT_STORAGE_KEY), "1");
+  assert.equal(getAttemptCount(storage), 1);
+  claimAttempt(storage);
+  assert.equal(storage.getItem(ATTEMPT_STORAGE_KEY), "2");
+});
+
+test("storage errors must not silently grant unlimited replays", () => {
+  const storage = {
+    getItem() { throw new Error("private mode"); },
+    setItem() { throw new Error("private mode"); },
+  };
+  assert.equal(getAttemptCount(storage), null);
+  assert.deepEqual(claimAttempt(storage), {
+    allowed: false, reason: "storage", used: null, remaining: 0,
+  });
+});
