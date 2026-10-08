@@ -1,11 +1,11 @@
 /**
- * Browser-local play cap: one initial challenge + two replays.
+ * Browser-local play cap: one initial challenge + one replay.
  * This prevents casual replay on one browser. It does NOT identify a person
  * across devices or prevent clearing storage; that requires an authenticated backend.
  */
-export const MAX_REPLAYS = 2;
+export const MAX_REPLAYS = 1;
 export const MAX_ATTEMPTS = MAX_REPLAYS + 1;
-export const ATTEMPT_STORAGE_KEY = "moneyLingo.playAttempts.v1";
+export const ATTEMPT_STORAGE_KEY = "moneyLingo.playAttempts.v2";
 
 export function getAttemptCount(storage) {
   try {
