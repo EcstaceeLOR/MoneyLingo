@@ -12,9 +12,9 @@ A playable, mobile-first **unofficial Lojay fan tribute** inspired by *Money Lin
 4. Answer **5 randomly selected music questions** from a **20-question Lojay trivia bank**. No repeated questions within a round; four answer choices per question are shuffled too.
 5. Each correct answer earns **20% fan status + $200,000 fictional fan cash**, up to 100% / $1,000,000. Every user, including 0% scorers, receives a **personalized downloadable PNG receipt**.
 6. Share the receipt (uses your device's native Share Sheet when available; otherwise downloads the image).
-7. A player can play **once and replay twice at most per browser**, for a total of three rounds. Refreshing during a round lets you resume without consuming another attempt; completed receipts can be revisited.
+7. A player can play **once and replay once at most per browser**, for a total of two rounds. Refreshing during a round lets you resume without consuming another attempt; completed receipts can be revisited.
 
-There are six user-provided original Lojay portraits. The high-resolution orange portrait is the main hero; smaller portraits are displayed in a thumbnail collage **at or below their useful natural resolution** rather than stretched and blurred. The UI contains decorative money symbols, falling-cash animations, and a toggle for ATM sound effects; animations respect `prefers-reduced-motion`.
+There are six user-provided original Lojay portraits. The high-resolution orange portrait is the main hero; smaller portraits are displayed in a thumbnail collage **at or below their useful natural resolution** rather than stretched and blurred. The UI contains decorative money symbols, falling-cash animations, and a toggle for an original procedural electronic backing groove and subtle ATM sound effects; animations respect `prefers-reduced-motion`.
 
 ## Run locally
 
@@ -43,10 +43,13 @@ This is a static web app ready for GitHub Pages, Netlify, or Vercel. Keep `index
 
 ## Replay-limit design
 
-Attempts are persisted under the `moneyLingo.playAttempts.v1` key in browser `localStorage` and claimed at the start of each round. A return visit may resume an unfinished session. The limit is **browser-level only**, not a secure way to identify a person across devices. A backend plus sign-in would be needed to guarantee a strict per-person limit. The website makes no claim otherwise.
+Attempts are persisted under the `moneyLingo.playAttempts.v2` key in browser `localStorage` and claimed at the start of each round. A return visit may resume an unfinished session. The limit is **browser-level only**, not a secure way to identify a person across devices. A backend plus sign-in would be needed to guarantee a strict per-person limit. The website makes no claim otherwise.
 
 ## Facts and media
 
-Trivia is drawn from publicly listed releases and collaborations, especially [LV N ATTN](https://music.apple.com/us/album/lv-n-attn-ep/1564963618), [GANGSTER ROMANTIC](https://music.apple.com/us/album/gangster-romantic/1662531615), [Loveless](https://music.apple.com/us/album/loveless-ep/1732548659), and [XOXO](https://music.apple.com/us/album/xoxo/1826159602). The site does not reproduce song lyrics or stream licensed tracks.
+Trivia is drawn from publicly listed releases and collaborations, especially [LV N ATTN](https://music.apple.com/us/album/lv-n-attn-ep/1564963618), [GANGSTER ROMANTIC](https://music.apple.com/us/album/gangster-romantic/1662531615), [Loveless](https://music.apple.com/us/album/loveless-ep/1732548659), and [XOXO](https://music.apple.com/us/album/xoxo/1826159602). The site does not reproduce song lyrics or stream licensed tracks. The optional original synth groove is NOT the copyrighted recording of Monalisa. Add any artist recording only with appropriate permission/licensing.
 
 The six supplied photos are for this fan-made project; their original photographers and rightsholders retain any applicable rights. Do not relicense them as original photographs.
+## Creators / attribution
+
+Website credits: **CREATED BY BIG DEMS — @dems_the penlord on X**, with the requested **POWERED BY LOJAY** header as a fan tribute; no official Lojay sponsorship or endorsement is implied.
