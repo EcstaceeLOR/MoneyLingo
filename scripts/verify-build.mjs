@@ -6,6 +6,15 @@ import { MAX_ATTEMPTS, MAX_REPLAYS } from '../src/attempts.js';
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 assert.match(html, /<title>Money Lingo ATM/i, 'Missing page title');
 assert.match(html, /id="receiptBtn"/, 'Receipt download control missing');
+const receiptSource = html.split('function makeReceipt(){')[1]?.split('const receiptName=')[0];
+assert.ok(receiptSource, 'Receipt renderer missing');
+assert.match(receiptSource, /Courier New/, 'Receipt must use retro monospace font');
+assert.match(receiptSource, /dither/, 'Receipt must use thermal halftone portrait');
+assert.match(receiptSource, /#fff/, 'Receipt white paper base missing');
+assert.match(receiptSource, /#000/, 'Receipt black ink missing');
+assert.doesNotMatch(receiptSource, /#[a-fA-F0-9]{6}/, 'Receipt must be black and white only');
+assert.match(html, /class="bottom"/, 'Bottom credits missing');
+
 assert.match(html, /id="shareBtn"/, 'Receipt share control missing');
 assert.match(html, /id="backingMusic"/, 'Background music element missing');
 assert.match(html, /id="soundToggle"/, 'Sound control missing');
