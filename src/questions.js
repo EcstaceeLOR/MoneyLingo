@@ -1,231 +1,234 @@
 /**
  * Money Lingo ATM: factual, original song/album trivia (not song lyrics).
  * Sources checked Oct 2026:
+ * https://guardian.ng/life/on-the-cover/xoxo-lojays-tender-love-capsules/
+ * https://www.aljazeera.com/features/longform/2023/10/8/lojay-the-preachers-son-who-minted-romantic-anthems-from-stripper-therapy
  * https://music.apple.com/us/artist/lojay/1151631485
  * https://music.apple.com/us/album/lv-n-attn-ep/1564963618
  * https://music.apple.com/us/album/xoxo/1826159602
  * https://music.apple.com/us/album/loveless-ep/1732548659
  * https://music.apple.com/us/album/money-lingo-single/6812426555
+ * Quiz always draws 5 distinct Lojay-specific questions per attempt.
  */
 export const QUESTION_BANK = [
   {
     "id": "q01",
-    "question": "Who teamed up with Lojay on the original hit “Monalisa”?",
-    "correct": "Sarz",
+    "question": "What is Lojay’s real name?",
+    "correct": "Lekan Osifeso Jr",
     "options": [
-      "Sarz",
-      "JAE5",
-      "P.Priime",
-      "Magicsticks"
+      "Lekan Osifeso Jr",
+      "Lekan Balogun",
+      "Olamide Adedeji",
+      "Joseph Akinwale"
     ]
   },
   {
     "id": "q02",
-    "question": "Which international superstar joined Lojay and Sarz for the “Monalisa” remix?",
-    "correct": "Chris Brown",
+    "question": "Which country is Lojay from?",
+    "correct": "Nigeria",
     "options": [
-      "Chris Brown",
-      "Justin Bieber",
-      "Usher",
-      "Jason Derulo"
+      "Nigeria",
+      "Ghana",
+      "South Africa",
+      "Kenya"
     ]
   },
   {
     "id": "q03",
-    "question": "Which “LV N ATTN” song features Wizkid?",
-    "correct": "LV N ATTN",
+    "question": "In which Nigerian city was Lojay raised?",
+    "correct": "Lagos",
     "options": [
-      "LV N ATTN",
-      "Tonongo",
-      "WYLM",
-      "Park O X3"
+      "Lagos",
+      "Abuja",
+      "Ibadan",
+      "Port Harcourt"
     ]
   },
   {
     "id": "q04",
-    "question": "Which of these songs appears on Lojay and Sarz's 2021 EP “LV N ATTN”?",
-    "correct": "Tonongo",
+    "question": "At which UK university did Lojay study?",
+    "correct": "University of Portsmouth",
     "options": [
-      "Tonongo",
-      "MOTO",
-      "IYD",
-      "Bobo"
+      "University of Portsmouth",
+      "University of Liverpool",
+      "University of Manchester",
+      "University of Bristol"
     ]
   },
   {
     "id": "q05",
-    "question": "Which of these song titles also appears on “LV N ATTN”?",
-    "correct": "Park O X3",
+    "question": "Which producer made the breakthrough “LV N ATTN” EP with Lojay?",
+    "correct": "Sarz",
     "options": [
-      "Park O X3",
-      "Sawa",
-      "Shiver",
-      "Tenner"
+      "Sarz",
+      "P.Priime",
+      "JAE5",
+      "Magicsticks"
     ]
   },
   {
     "id": "q06",
-    "question": "Which of these was a Lojay single released in 2022?",
-    "correct": "LEADER!",
+    "question": "In which year did Lojay and Sarz release “LV N ATTN”?",
+    "correct": "2021",
     "options": [
-      "LEADER!",
-      "Billions",
-      "Bobo",
-      "TATTUU"
+      "2021",
+      "2019",
+      "2023",
+      "2025"
     ]
   },
   {
     "id": "q07",
-    "question": "On which project would you find the Lojay track “MOTO”?",
-    "correct": "GANGSTER ROMANTIC",
+    "question": "What does the title of Lojay’s “LV N ATTN” EP stand for?",
+    "correct": "Love and Attention",
     "options": [
-      "GANGSTER ROMANTIC",
-      "XOXO",
-      "Loveless",
-      "LV N ATTN"
+      "Love and Attention",
+      "Live and Attitude",
+      "Life and Ambition",
+      "Love and Affection"
     ]
   },
   {
     "id": "q08",
-    "question": "Which song is the final track on Lojay's “XOXO” album?",
-    "correct": "Alright",
+    "question": "Which Lojay hit was remixed with Chris Brown?",
+    "correct": "Monalisa",
     "options": [
-      "Alright",
-      "Tenner",
-      "Suru",
-      "Jericho"
+      "Monalisa",
+      "MOTO",
+      "Tonongo",
+      "LEADER!"
     ]
   },
   {
     "id": "q09",
-    "question": "Who teamed up with Lojay for the 2024 “Loveless” EP?",
-    "correct": "JAE5",
+    "question": "Which producer worked with Lojay on the original “Monalisa”?",
+    "correct": "Sarz",
     "options": [
-      "JAE5",
       "Sarz",
-      "P.Priime",
-      "DJ Neptune"
+      "Kel-P",
+      "London",
+      "Young Jonn"
     ]
   },
   {
     "id": "q10",
-    "question": "Who is featured on JAE5 and Lojay's song “I Wish”?",
-    "correct": "Libianca",
+    "question": "Which superstar features on Lojay’s song “LV N ATTN”?",
+    "correct": "Wizkid",
     "options": [
-      "Libianca",
-      "Tyla",
-      "Tems",
-      "Amaarae"
-    ]
-  },
-  {
-    "id": "q11",
-    "question": "Which JAE5 and Lojay song features Tyler ICU and Sha Sha?",
-    "correct": "Dishonest",
-    "options": [
-      "Dishonest",
-      "Watermami",
-      "I Wish",
-      "Love Made Me Do It"
-    ]
-  },
-  {
-    "id": "q12",
-    "question": "Whose song “Sensational” features both Davido and Lojay?",
-    "correct": "Chris Brown",
-    "options": [
-      "Chris Brown",
       "Wizkid",
+      "Davido",
       "Burna Boy",
-      "Omah Lay"
-    ]
-  },
-  {
-    "id": "q13",
-    "question": "Who features alongside Lojay on “Arizona”?",
-    "correct": "Olamide",
-    "options": [
-      "Olamide",
-      "Asake",
-      "Zlatan",
-      "Blaqbonez"
-    ]
-  },
-  {
-    "id": "q14",
-    "question": "Which singer recorded “Running” with Lojay?",
-    "correct": "Ayra Starr",
-    "options": [
-      "Ayra Starr",
-      "Tems",
-      "Tiwa Savage",
-      "Tyla"
-    ]
-  },
-  {
-    "id": "q15",
-    "question": "Who features on Lojay's “Mwah!” from the album “XOXO”?",
-    "correct": "Odeal",
-    "options": [
-      "Odeal",
-      "Fireboy DML",
-      "BNXN",
       "Rema"
     ]
   },
   {
-    "id": "q16",
-    "question": "Which Colombian artist joins Lojay on “Body”?",
-    "correct": "Feid",
+    "id": "q11",
+    "question": "Which of these is a track from Lojay and Sarz’s “LV N ATTN” EP?",
+    "correct": "Tonongo",
     "options": [
-      "Feid",
-      "J Balvin",
-      "Maluma",
-      "Bad Bunny"
+      "Tonongo",
+      "Shiver",
+      "Tenner",
+      "MOTO"
+    ]
+  },
+  {
+    "id": "q12",
+    "question": "What is the title of Lojay’s 2023 project?",
+    "correct": "GANGSTER ROMANTIC",
+    "options": [
+      "GANGSTER ROMANTIC",
+      "XOXO",
+      "African Giant",
+      "Made in Lagos"
+    ]
+  },
+  {
+    "id": "q13",
+    "question": "Which of these is Lojay’s 2022 single?",
+    "correct": "LEADER!",
+    "options": [
+      "LEADER!",
+      "Sawa",
+      "Memories",
+      "Body"
+    ]
+  },
+  {
+    "id": "q14",
+    "question": "Which producer joined Lojay on the 2024 “Loveless” EP?",
+    "correct": "JAE5",
+    "options": [
+      "JAE5",
+      "Sarz",
+      "Pheelz",
+      "Don Jazzy"
+    ]
+  },
+  {
+    "id": "q15",
+    "question": "What is the title of Lojay’s debut studio album?",
+    "correct": "XOXO",
+    "options": [
+      "XOXO",
+      "Monalisa",
+      "LV N ATTN",
+      "Loveless"
+    ]
+  },
+  {
+    "id": "q16",
+    "question": "How many songs are on Lojay’s 2025 album “XOXO”?",
+    "correct": "14",
+    "options": [
+      "14",
+      "8",
+      "10",
+      "18"
     ]
   },
   {
     "id": "q17",
-    "question": "Which singer joins Lojay on “Memories” from “XOXO”?",
-    "correct": "Tyla",
+    "question": "Who joins Lojay on the “XOXO” track “Mwah!”?",
+    "correct": "Odeal",
     "options": [
-      "Tyla",
-      "Ayra Starr",
+      "Odeal",
+      "Victony",
       "Tems",
-      "Amaarae"
+      "BNXN"
     ]
   },
   {
     "id": "q18",
-    "question": "Who features on Lojay's “Sawa” from “XOXO”?",
-    "correct": "Victony",
+    "question": "Who features with Lojay on “Body” from “XOXO”?",
+    "correct": "Feid",
     "options": [
-      "Victony",
-      "Ruger",
-      "Omah Lay",
-      "Joeboy"
+      "Feid",
+      "Maluma",
+      "J Balvin",
+      "Ozuna"
     ]
   },
   {
     "id": "q19",
-    "question": "Which track on “XOXO” is labeled as an interlude?",
-    "correct": "Wanchu",
+    "question": "Which South African singer appears with Lojay on “Memories”?",
+    "correct": "Tyla",
     "options": [
-      "Wanchu",
-      "Suru",
-      "Salê",
-      "Shiver"
+      "Tyla",
+      "Elaine",
+      "Sha Sha",
+      "Nandi Mhlongo"
     ]
   },
   {
     "id": "q20",
-    "question": "Which 2026 Lojay single shares its name with this fan-made ATM?",
-    "correct": "Money Lingo",
+    "question": "Which Nigerian singer features with Lojay on “Sawa”?",
+    "correct": "Victony",
     "options": [
-      "Money Lingo",
-      "Bobo",
-      "Gorgeous",
-      "Billions"
+      "Victony",
+      "Rema",
+      "Joeboy",
+      "Ruger"
     ]
   }
 ];
