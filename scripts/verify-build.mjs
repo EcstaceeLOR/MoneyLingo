@@ -19,7 +19,7 @@ assert.match(html, /id="shareBtn"/, 'Receipt share control missing');
 assert.match(html, /id="backingMusic"/, 'Background music element missing');
 assert.match(html, /id="soundToggle"/, 'Sound control missing');
 assert.match(html, /\.play\(\)/, 'Audio playback action missing');
-const wav = readFileSync(new URL('../assets/moneylingo-groove.wav', import.meta.url));
+const wav = readFileSync(new URL('../assets/moneylingo-afrofunk-v3.wav', import.meta.url));
 assert.ok(wav.length > 200_000,'Soundtrack is too short or missing');
 assert.equal(wav.toString('ascii',0,4),'RIFF','Soundtrack is not a RIFF WAV');
 assert.equal(wav.toString('ascii',8,12),'WAVE','Soundtrack WAV header invalid');
