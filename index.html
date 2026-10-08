@@ -38,11 +38,11 @@
 <header class="topbar"><div class="brand"><span class="brand-icon">₦</span> MONEY LINGO <span style="color:var(--lime)">ATM</span></div><span class="topflag">UNOFFICIAL FAN EXPERIENCE ✳</span></header>
 <main class="main">
 <div class="machine"><div class="machine-top"><span>LOJAY BANKING EXPERIENCE™</span><span><i class="led"></i> SYSTEM ONLINE</span></div><div class="display" aria-live="polite">
-<section class="scene active" id="welcome"><p class="eyebrow">01 / Welcome to the machine</p><h1 class="title">SPEAK<br><em>MONEY</em><br>LINGO.</h1><p class="copy">This ATM only understands one language. Think you've got what it takes to unlock the vault?</p><label class="field-label" for="playerName">Enter your fan name</label><div class="input-row"><input class="input" id="playerName" maxlength="28" placeholder="Your name" autocomplete="nickname"><button class="btn primary" id="startBtn">START →</button></div><p class="mini">Not a real bank. All prizes are virtual, for fun, and cannot be redeemed.</p><div class="notice error" id="nameError" hidden>Please enter your name first.</div></section>
+<section class="scene active" id="welcome"><p class="eyebrow">01 / Welcome to the machine</p><h1 class="title">SPEAK<br><em>MONEY</em><br>LINGO.</h1><p class="copy">This ATM only understands one language. Think you've got what it takes to unlock the vault?</p><p class="mini" id="attemptInfo" role="status">One play plus two replays — three attempts in total.</p><label class="field-label" for="playerName">Enter your fan name</label><div class="input-row"><input class="input" id="playerName" maxlength="28" placeholder="Your name" autocomplete="nickname"><button class="btn primary" id="startBtn">START →</button></div><p class="mini">Not a real bank. All prizes are virtual, for fun, and cannot be redeemed.</p><div class="notice error" id="nameError" hidden>Please enter your name first.</div></section>
 <section class="scene" id="select"><p class="eyebrow">02 / Make a withdrawal</p><h2 class="title">WHAT DO<br>YOU <em>WANT?</em></h2><p class="copy">Choose your withdrawal. Warning: This machine has selective hearing.</p><div class="choice-grid" id="transactions"><button class="choice" data-type="Love"><span>♥</span>LOVE</button><button class="choice" data-type="Peace"><span>✳</span>PEACE</button><button class="choice" data-type="Sex"><span>♡</span>SEX</button><button class="choice" data-type="Happiness"><span>☀</span>HAPPINESS</button><button class="choice" data-type="Heartbreak"><span>↘</span>HEARTBREAK</button><button class="choice money" data-type="Money"><span>💰</span>MONEY</button></div><div class="notice" id="transactionNotice" hidden></div></section>
 <section class="scene" id="pin"><p class="eyebrow">03 / Secure access</p><h2 class="title">ENTER THE<br><em>SECRET.</em></h2><p class="copy">Only real Money Lingo speakers know this five-letter PIN.</p><label class="field-label" for="pinInput">Five-letter access code</label><div class="input-row"><input class="input pin" id="pinInput" type="text" inputmode="text" maxlength="5" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="•••••"><button class="btn primary" id="pinBtn">UNLOCK →</button></div><div class="hint">💡 <strong>HINT:</strong> My songs include Monalisa, Leader, and Tonongo.</div><div class="notice" id="pinNotice" hidden></div></section>
 <section class="scene" id="quiz"><div class="quiz-meta"><span id="quizNumber">QUESTION 1 / 5</span><span id="quizMoney">$0 UNLOCKED</span></div><div class="quiz-track" aria-hidden="true"><div class="quiz-track-fill" id="quizFill"></div></div><p class="eyebrow">04 / Prove your fandom</p><h2 class="question" id="quizQuestion"></h2><div class="answers" id="quizAnswers"></div><div class="notice" id="answerNotice" hidden></div><button id="nextBtn" class="btn primary" style="margin-top:20px" hidden>CONTINUE →</button></section>
-<section class="scene" id="result"><p class="eyebrow">05 / Transaction complete</p><h2 class="title">YOU<br><em>CASHED</em><br>OUT.</h2><span class="badge" id="fanTier">CERTIFIED FAN</span><p class="mini" style="margin-top:25px">TOTAL VIRTUAL FAN CASH</p><div class="value" id="resultAmount">$1,000,000</div><div class="scorebar"><strong id="resultPct">100%</strong><span id="resultSummary">5 of 5 questions correct</span></div><div class="row"><button class="btn primary" id="receiptBtn">↓ DOWNLOAD RECEIPT</button><button class="btn ghost" id="againBtn">↻ PLAY AGAIN</button></div><p class="mini" style="margin-top:20px">Fantasy points only • No actual payout • Not affiliated with Lojay or a bank.</p></section>
+<section class="scene" id="result"><p class="eyebrow">05 / Transaction complete</p><h2 class="title">YOU<br><em>CASHED</em><br>OUT.</h2><span class="badge" id="fanTier">CERTIFIED FAN</span><p class="mini" style="margin-top:25px">TOTAL VIRTUAL FAN CASH</p><div class="value" id="resultAmount">$1,000,000</div><div class="scorebar"><strong id="resultPct">100%</strong><span id="resultSummary">5 of 5 questions correct</span></div><div class="row"><button class="btn primary" id="receiptBtn">↓ DOWNLOAD RECEIPT</button><button class="btn ghost" id="againBtn">↻ PLAY AGAIN</button></div><p class="mini" id="replayInfo" role="status" style="margin-top:18px"></p><p class="mini" style="margin-top:20px">Fantasy points only • No actual payout • Not affiliated with Lojay or a bank.</p></section>
 </div></div>
 <aside class="gallery" id="gallery"><img class="gallery-photo" id="galleryImage" src="assets/lojay-1.jpeg" alt="Portrait of Lojay" loading="eager" decoding="async"><span class="gallery-top">LOUDER THAN A CREDIT ALERT ↗</span><div class="gallery-wrap"><p class="gallery-big">LOJAY<br><b>$$$</b></p><span class="gallery-small">THE FAN EDITION / MONEY LINGO</span></div></aside>
 </main>
@@ -50,6 +50,7 @@
 </div>
 <script type="module">
 import { createRound, calculateWinnings } from "./src/questions.js";
+import { claimAttempt, getAttemptCount, MAX_ATTEMPTS, MAX_REPLAYS } from "./src/attempts.js";
 const $ = id => document.getElementById(id);
 const screens=["welcome","select","pin","quiz","result"];
 const photos=["lojay-1.jpeg","lojay-2.jpeg","lojay-3.jpeg","lojay-4.jpeg","lojay-5.jpeg","lojay-6.jpeg"];
@@ -58,17 +59,65 @@ const money = n => "$"+Math.round(n).toLocaleString("en-US");
 function screen(id){for(const s of screens) $(s).classList.toggle("active",s===id);const idx=screens.indexOf(id);const image=$("galleryImage");$("gallery").classList.remove("photo-missing");image.src="assets/"+photos[idx];window.scrollTo({top:0,behavior:"auto"});}
 $("galleryImage").addEventListener("error",()=>{$("gallery").classList.add("photo-missing")});
 function showNotice(id,message,isError){const el=$(id);el.hidden=false;el.textContent=message;el.classList.toggle("error",!!isError)}
+function attemptsRemaining(){const n=getAttemptCount(window.localStorage);return n===null?null:Math.max(0,MAX_ATTEMPTS-n)}
+function updateAttemptUI(){
+  const n=attemptsRemaining();
+  if(n===null){
+    $("attemptInfo").textContent="Please enable browser storage to take the fan challenge.";
+    $("startBtn").disabled=true;
+    return;
+  }
+  $("attemptInfo").textContent=n===0
+    ?"Your three attempts (one play + two replays) are finished on this browser."
+    :n+" attempt"+(n===1?"":"s")+" remaining · Up to "+MAX_REPLAYS+" replays allowed.";
+  $("startBtn").disabled=n===0;
+}
+updateAttemptUI();
 function beep(ok){try{const AudioCtx=window.AudioContext||window.webkitAudioContext;if(!AudioCtx)return;const c=new AudioCtx();const o=c.createOscillator();const g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=ok?780:240;g.gain.value=.028;o.start();o.stop(c.currentTime+.085);o.onended=()=>c.close();}catch{}}
 $("startBtn").addEventListener("click",()=>{player=$("playerName").value.trim().replace(/\s+/g," ").slice(0,28);if(!player){$("nameError").hidden=false;return;}$("nameError").hidden=true;screen("select")});
 $("playerName").addEventListener("keydown",e=>{if(e.key==="Enter")$("startBtn").click()});
 $("transactions").addEventListener("click",e=>{const button=e.target.closest("button[data-type]");if(!button)return;const type=button.dataset.type;const approved=type==="Money";beep(approved);showNotice("transactionNotice",approved?"APPROVED ✓ — You speak our language!":'DECLINED ✕ — Sorry, this ATM only speaks Money Lingo.',!approved);if(approved){setTimeout(()=>{screen("pin");$("pinInput").focus()},700)}});
 function attemptPin(){const pin=$("pinInput").value.trim().toUpperCase();if(pin==="LOJAY"){beep(true);showNotice("pinNotice","ACCESS GRANTED ✓ — Lojay fan check unlocked.",false);setTimeout(startQuiz,550)}else{beep(false);showNotice("pinNotice","ACCESS DENIED ✕ — Five letters. Try again!",true);$("pinInput").select()}}
 $("pinBtn").addEventListener("click",attemptPin);$("pinInput").addEventListener("keydown",e=>{if(e.key==="Enter")attemptPin()});
-function startQuiz(){round=createRound(5);step=0;correct=0;screen("quiz");renderQuestion()}
+function startQuiz(){
+  const claim=claimAttempt(window.localStorage);
+  if(!claim.allowed){
+    beep(false);
+    const reason=claim.reason==="storage"
+      ?"Please enable browser storage to play this challenge."
+      :"All three attempts have been used. You cannot replay again on this browser.";
+    if($("result").classList.contains("active")){
+      $("replayInfo").textContent=reason;
+      $("againBtn").hidden=true;
+      $("againBtn").disabled=true;
+    } else {
+      showNotice("pinNotice",reason,true);
+    }
+    updateAttemptUI();
+    return;
+  }
+  updateAttemptUI();
+  round=createRound(5);step=0;correct=0;screen("quiz");renderQuestion();
+}
 function renderQuestion(){chosen=false;const q=round[step];$("quizNumber").textContent="QUESTION "+(step+1)+" / 5";$("quizMoney").textContent=money(correct*200000)+" UNLOCKED";$("quizFill").style.width=((step+1)/5*100)+"%";$("quizQuestion").textContent=q.question;$("answerNotice").hidden=true;$("nextBtn").hidden=true;$("nextBtn").textContent=step===4?"COLLECT VIRTUAL CASH →":"CONTINUE →";const box=$("quizAnswers");box.replaceChildren();for(const answer of q.options){const btn=document.createElement("button");btn.type="button";btn.className="choice";btn.textContent=answer;btn.addEventListener("click",()=>answerQuestion(answer));box.append(btn)}}
 function answerQuestion(answer){if(chosen)return;chosen=true;const q=round[step];const right=answer===q.correct;if(right)correct++;beep(right);for(const btn of $("quizAnswers").children){btn.disabled=true;if(btn.textContent===q.correct)btn.classList.add("correct");else if(btn.textContent===answer)btn.classList.add("wrong")}showNotice("answerNotice",right?"CORRECT! +$200,000 virtual fan cash 💸":"NOT QUITE! The answer is "+q.correct+".",!right);$("quizMoney").textContent=money(correct*200000)+" UNLOCKED";$("nextBtn").hidden=false}
 $("nextBtn").addEventListener("click",()=>{if(!chosen)return;if(step<4){step++;renderQuestion()}else{renderResults()}});
-function renderResults(){screen("result");const w=calculateWinnings(correct);$("resultAmount").textContent=money(w.dollars);$("resultPct").textContent=w.percent+"%";$("resultSummary").textContent=w.correct+" of 5 questions correct";$("fanTier").textContent=w.percent===100?"🏆 LEGENDARY LOJAY FAN":w.percent>=60?"✳ CERTIFIED MONEY LINGO SPEAKER":w.percent>0?"✳ RISING LOJAY FAN":"✳ YOUR FAN JOURNEY STARTS HERE"}
+function renderResults(){
+  screen("result");
+  const w=calculateWinnings(correct);
+  $("resultAmount").textContent=money(w.dollars);
+  $("resultPct").textContent=w.percent+"%";
+  $("resultSummary").textContent=w.correct+" of 5 questions correct";
+  $("fanTier").textContent=w.percent===100?"🏆 LEGENDARY LOJAY FAN":w.percent>=60?"✳ CERTIFIED MONEY LINGO SPEAKER":w.percent>0?"✳ RISING LOJAY FAN":"✳ YOUR FAN JOURNEY STARTS HERE";
+  const left=attemptsRemaining();
+  const canReplay=left!==null&&left>0;
+  $("againBtn").hidden=!canReplay;
+  $("againBtn").disabled=!canReplay;
+  $("againBtn").textContent="↻ PLAY AGAIN ("+left+" LEFT)";
+  $("replayInfo").textContent=canReplay
+    ?left+" replay"+(left===1?"":"s")+" remaining. Each round selects five new random questions."
+    :"You've used all three attempts (including two replays). You can still download your receipt.";
+}
 $("againBtn").addEventListener("click",startQuiz);
 $("receiptBtn").addEventListener("click",async()=>{
  const canvas=document.createElement("canvas");canvas.width=900;canvas.height=1340;const c=canvas.getContext("2d");if(!c){alert("Receipt could not be generated on this device.");return}
