@@ -55,13 +55,13 @@ function fakeStorage() {
   };
 }
 
-test("one first round and exactly two replays are permitted", () => {
+test("one initial round and exactly one replay are permitted", () => {
   const storage = fakeStorage();
-  assert.equal(MAX_ATTEMPTS, 3);
-  assert.equal(MAX_REPLAYS, 2);
+  assert.equal(MAX_ATTEMPTS, 2);
+  assert.equal(MAX_REPLAYS, 1);
   assert.equal(getAttemptCount(storage), 0);
-  assert.deepEqual([claimAttempt(storage), claimAttempt(storage), claimAttempt(storage)].map(x => x.allowed), [true, true, true]);
-  assert.equal(getAttemptCount(storage), 3);
+  assert.deepEqual([claimAttempt(storage), claimAttempt(storage), claimAttempt(storage)].map(x => x.allowed), [true, true, false]);
+  assert.equal(getAttemptCount(storage), 2);
   assert.equal(claimAttempt(storage).allowed, false);
   assert.equal(claimAttempt(storage).reason, "limit");
 });
