@@ -9,8 +9,8 @@ A playable, mobile-first **unofficial Lojay fan tribute** inspired by *Money Lin
 1. Enter a name to personalize your receipt.
 2. Choose a transaction. LOVE, PEACE, HAPPINESS, SEX, and HEARTBREAK are humorously declined; **MONEY** is approved.
 3. Solve the five-letter PIN challenge. Hint: *My songs include Monalisa, Leader, and Tonongo.*
-4. Answer **5 randomly selected music questions** from a **20-question Lojay trivia bank**. No repeated questions within a round; four answer choices per question are shuffled too.
-5. Each correct answer earns **20% fan status + $200,000 fictional fan cash**, up to 100% / $1,000,000. Every user, including 0% scorers, receives a **personalized downloadable PNG receipt**.
+4. Answer **5 randomly selected questions about Lojay** from a **20-question fan trivia bank** (artist facts, early career, songs, EPs, and collaborations). No repeated questions within a round; four answer choices per question are shuffled too.
+5. Each correct answer earns **20% fan status + $200,000 fictional fan cash**, up to 100% / $1,000,000. Every user, including 0% scorers, receives a **personalized, strictly black-and-white 1990s thermal-style PNG receipt**.
 6. Share the receipt (uses your device's native Share Sheet when available; otherwise downloads the image).
 7. A player can play **once and replay once at most per browser**, for a total of two rounds. Refreshing during a round lets you resume without consuming another attempt; completed receipts can be revisited.
 
@@ -53,3 +53,7 @@ The six supplied photos are for this fan-made project; their original photograph
 ## Creators / attribution
 
 Website credits: **CREATED BY BIG DEMS — @dems_the penlord on X**, with the requested **POWERED BY LOJAY** header as a fan tribute; no official Lojay sponsorship or endorsement is implied.
+
+## Visual direction
+
+The UI uses high-contrast concert-like lime/gold highlights, animated ATM LEDs, a decorative cash-dispensing slot, a kinetic footer treatment, and energetic button states. No extra advertising copy or unrelated headings were added. The downloaded receipt alone is monochrome and uses a dithered one-bit Lojay portrait with vintage mono printing; other site colors and game flows remain intact.
