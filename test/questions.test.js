@@ -2,6 +2,13 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { QUESTION_BANK, createRound, calculateWinnings, shuffle } from "../src/questions.js";
 
+test("the bank contains twenty questions explicitly about Lojay", () => {
+  assert.equal(QUESTION_BANK.length, 20);
+  for (const question of QUESTION_BANK) {
+    assert.match(question.question, /Lojay/i, `Unrelated question: ${question.id}`);
+  }
+});
+
 test("bank has 20 distinct questions with valid choices", () => {
   assert.equal(QUESTION_BANK.length, 20);
   assert.equal(new Set(QUESTION_BANK.map(q => q.id)).size, 20);
