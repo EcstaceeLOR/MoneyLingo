@@ -56,6 +56,60 @@
     @media(max-width:930px){.stage{grid-template-columns:1fr}.art{min-height:340px}.art>img.main-photo{object-position:center 24%}.art-copy{bottom:115px}.art-copy h1{font-size:65px}.portraits{max-width:510px;bottom:18px}.portrait{height:72px}.atm-shell{min-height:570px}}
     @media(max-width:500px){.wrap{padding:13px 12px;gap:12px}.brand .symbol{width:33px;height:33px;font-size:24px}.brand{font-size:17px}.top-pill{font-size:8px;padding:8px}.stage{gap:11px}.art{min-height:265px;border-radius:18px}.art>img.main-photo{object-position:center 16%}.sticker{top:10px;left:10px;padding:8px;font-size:9px}.art-copy{left:15px;right:15px;bottom:76px}.art-copy h1{font-size:45px;margin-bottom:8px}.art-copy .minor{font-size:8px;margin-bottom:8px}.art-copy p{font-size:10px;margin:0}.portrait{height:48px;border-radius:7px}.portraits{left:13px;right:13px;bottom:11px;gap:5px}.dollar{font-size:22px}.atm-shell{padding:10px;border-radius:20px;min-height:555px}.atm-label{font-size:9px;padding:4px 7px}.screen{border-width:4px;border-radius:15px;padding:25px 16px}.heading{font-size:45px}.sub{font-size:14px}.grid{gap:8px}.select{padding:10px;min-height:77px;font-size:13px}.answers{grid-template-columns:1fr}.option{min-height:52px}.fieldrow{flex-direction:column}.btn{min-height:50px}.field.pin{max-width:none}.bottom{font-size:9px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+    /* High-energy concert-meets-ATM treatment: decoration only, no added text. */
+    @keyframes atmGlow{0%,100%{box-shadow:0 15px 80px #0008,0 0 10px #e8cd3b22,inset 2px 2px #93a456}
+      50%{box-shadow:0 20px 85px #0009,0 0 44px #dbfb4f65,inset 2px 2px #bac873}}
+    @keyframes goldSweep{0%{transform:translateX(-145%) rotate(-8deg)}100%{transform:translateX(170%) rotate(-8deg)}}
+    @keyframes floorStripe{from{background-position:0 0}to{background-position:135px 0}}
+    @keyframes pulseLight{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.25)}}
+    @keyframes cashSlot{0%,100%{filter:brightness(.8)}45%{filter:brightness(1.6)}}
+    .art{box-shadow:0 15px 60px #dd822235,0 0 0 2px #f3bd5440;
+      background:linear-gradient(135deg,#e89532,#965134 48%,#14130a)}
+    .art:before{content:"";position:absolute;z-index:2;inset:-25%;
+      background:linear-gradient(100deg,transparent 35%,#f7a63c15 47%,#f7f26955 50%,#f7a63c10 54%,transparent 66%);
+      transform:translateX(-145%) rotate(-8deg);pointer-events:none;animation:goldSweep 9s ease-in-out infinite}
+    .portrait{border-color:#fef6cc8c;box-shadow:0 5px 16px #0008,0 0 11px #edc85c66}
+    .atm-shell{background:linear-gradient(145deg,#788347 0%,#283020 28%,#141a13 65%,#544a25 100%);
+      animation:atmGlow 5s ease-in-out infinite;position:relative}
+    .atm-shell:after{content:"";display:block;flex:none;height:22px;margin:2px 14% 0;border-radius:5px;
+      border:2px solid #788342;background:linear-gradient(#090c0a 0%,#10160d 30%,#c6e76a 44%,#1b2414 56%,#070907 100%);
+      box-shadow:0 2px 10px #000d,inset 0 2px 6px #020301,0 0 16px #dcff5160;animation:cashSlot 4s ease-in-out infinite}
+    .screen{background:radial-gradient(ellipse at 88% 91%,#503d24 0%,transparent 44%),
+      radial-gradient(ellipse at 0% 4%,#3e5927 0%,#122519 52%,#0a1712 100%);
+      box-shadow:inset 0 0 75px #0008,inset 0 0 1px 1px #c7fa73,0 0 15px #daff5438}
+    .led{animation:pulseLight 1.6s ease-in-out infinite}
+    .heading i{filter:drop-shadow(0 2px 15px #cfff7569)}
+    .primary{background:linear-gradient(118deg,#eaff86,#ceff40 55%,#f6d572);
+      box-shadow:0 6px 0 #718b32,0 10px 22px #b3d34830}
+    .primary:active{transform:translateY(3px);box-shadow:0 2px 0 #718b32}
+    .select.money{background:linear-gradient(145deg,#e7ff7d,#ccfc46 60%,#efbe62);
+      box-shadow:0 0 20px #baff547c;border-color:#f8ffb3}
+    .option{box-shadow:inset 0 1px #f6ffef18,0 4px 10px #0004}
+    .option:not(:disabled):hover{border-color:#d9ff5e;box-shadow:0 0 19px #a2ff464a}
+    .progress-meta{color:#dcfbbd}
+    .track{height:10px;border:1px solid #a7b65a50;background:#0b110f}
+    .fill{background:linear-gradient(90deg,#dcff5b,#eebf48);box-shadow:0 0 18px #eeed8d}
+    .bottom{position:relative;overflow:hidden;background:linear-gradient(95deg,#38431f 0%,#171b12 45%,#544225 100%);
+      border:1px solid #9baa5794;border-radius:18px;padding:26px 20px 16px!important;
+      box-shadow:0 8px 25px #0007,0 0 25px #e5d75c2c}
+    .bottom:before{content:"";position:absolute;top:0;left:0;right:0;height:9px;
+      background:repeating-linear-gradient(108deg,#d9ff5e 0 28px,#f2b848 28px 43px,#22301a 43px 47px);
+      background-size:135px 9px;animation:floorStripe 4s linear infinite}
+    .bottom strong,.creator{filter:drop-shadow(0 0 5px #dfff4569)}
+    .cash{filter:drop-shadow(0 3px 15px #adff5280)}
+    .pill{border:1px solid #acd95c;box-shadow:0 0 16px #a1f34f40}
+    @media(max-width:500px){
+      .bottom{padding:22px 11px 13px!important;gap:6px}
+      .atm-shell:after{height:15px;margin:0 18%}
+      .art{box-shadow:0 5px 26px #e09a2d30}
+      .cta-row{gap:10px}
+      .cta-row .btn{box-shadow:0 3px 0 #65764a}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .art:before,.atm-shell,.atm-shell:after,.led,.bottom:before{animation:none!important}
+      .art:before{display:none}
+    }
   </style>
 </head>
 <body>
@@ -207,16 +261,78 @@
     $('resultMoney').classList.remove('result-glow');void $('resultMoney').offsetWidth;$('resultMoney').classList.add('result-glow');
   }
 
-  function makeReceipt(){const c=document.createElement('canvas');c.width=900;c.height=1320;const ctx=c.getContext('2d');if(!ctx){alert('Could not make receipt.');return;}ctx.fillStyle='#10160d';ctx.fillRect(0,0,900,1320);ctx.fillStyle='#d9ff5e';ctx.fillRect(0,0,900,18);ctx.fillStyle='#33432a';ctx.fillRect(0,18,900,400);
-    const image=document.querySelector('.main-photo');if(image.complete&&image.naturalWidth){const scale=Math.max(900/image.naturalWidth,400/image.naturalHeight),sw=900/scale,sh=400/scale;ctx.save();ctx.globalAlpha=.7;ctx.drawImage(image,(image.naturalWidth-sw)/2,Math.max(0,(image.naturalHeight-sh)*.18),sw,sh,0,18,900,400);ctx.restore()}
-    const grad=ctx.createLinearGradient(0,18,0,440);grad.addColorStop(0,'#0e140a22');grad.addColorStop(1,'#10160d');ctx.fillStyle=grad;ctx.fillRect(0,18,900,430);
-    const t=(text,x,y,size,color='#f3f5df',weight=700)=>{ctx.font=weight+' '+size+'px Arial, sans-serif';ctx.fillStyle=color;ctx.fillText(text,x,y)};
-    t('MONEY LINGO ATM',52,108,42,'#d9ff5e',800);t('POWERED BY LOJAY',52,157,19,'#efc87a');t('TRANSACTION // VIRTUAL FAN CASH',52,380,19,'#eac579');
-    ctx.strokeStyle='#7a9064';ctx.setLineDash([12,10]);ctx.beginPath();ctx.moveTo(52,488);ctx.lineTo(848,488);ctx.stroke();ctx.setLineDash([]);
-    t('RECEIPT FOR',52,550,21,'#c0cdb4');ctx.font='800 49px Arial';ctx.fillStyle='#f9fbe9';ctx.fillText(name.toUpperCase(),52,620,790);
-    t('FAN KNOWLEDGE',52,724,21,'#c0cdb4');t(correct+'/5 · '+correct*20+'%',52,786,48,'#efc87a',800);
-    t('AMOUNT UNLOCKED',52,893,21,'#c0cdb4');t(money(correct*200000),52,976,85,'#d9ff5e',800);
-    ctx.beginPath();ctx.moveTo(52,1050);ctx.lineTo(848,1050);ctx.stroke();t('YOU SPEAK MONEY LINGO!',52,1112,32);t('FICTIONAL REWARD — NOT REDEEMABLE',52,1170,21,'#efc87a',800);t('Fan-made tribute. Not a bank or an official Lojay promotion.',52,1220,17,'#b1c09f',500);t('CREATED BY BIG DEMS',52,1270,19,'#d9ff5e',800);t('@dems_the penlord on X',52,1300,16,'#c8d6b9',700);
+  // Black-and-white thermal-paper receipt, styled after 1990s dot-matrix ATMs.
+  // Identical customer details, score, amount, disclaimers, and credits.
+  function makeReceipt(){
+    const c=document.createElement('canvas');c.width=900;c.height=1320;
+    const ctx=c.getContext('2d');if(!ctx){alert('Could not make receipt.');return;}
+    ctx.imageSmoothingEnabled=false;
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,900,1320);
+    ctx.fillStyle='#000';ctx.fillRect(0,0,900,13);ctx.fillRect(0,1310,900,10);
+    // Receipt-paper edges and faint perforation marks use black ink only.
+    for(let y=17;y<1310;y+=34){
+      ctx.fillRect(7,y,7,2);ctx.fillRect(886,y,7,2);
+    }
+    const t=(value,x,y,size=22,bold=true,maxWidth)=>{
+      ctx.fillStyle='#000';
+      ctx.textAlign='left';
+      ctx.font=(bold?'700 ':'400 ')+size+'px "Courier New", Courier, monospace';
+      if(maxWidth)ctx.fillText(value,x,y,maxWidth);else ctx.fillText(value,x,y);
+    };
+    const rule=(y,heavy=false)=>{
+      ctx.save();ctx.beginPath();ctx.strokeStyle='#000';
+      ctx.lineWidth=heavy?4:2;ctx.setLineDash(heavy?[]:[10,7]);
+      ctx.moveTo(52,y);ctx.lineTo(848,y);ctx.stroke();ctx.restore();
+    };
+    t('MONEY LINGO ATM',52,103,47,true,796);
+    t('POWERED BY LOJAY',52,154,24);
+    rule(171,true);
+
+    // Print the same Lojay portrait in actual one-bit black/white, as 1990s receipt printers would.
+    const image=document.querySelector('.main-photo');
+    if(image&&image.complete&&image.naturalWidth>0){
+      try{
+        const thumbnail=document.createElement('canvas');
+        thumbnail.width=265;thumbnail.height=61;
+        const tx=thumbnail.getContext('2d',{willReadFrequently:true});
+        const srcW=image.naturalWidth,srcH=image.naturalHeight;
+        const aspect=thumbnail.width/thumbnail.height;
+        const sw=Math.min(srcW,srcH*aspect),sh=Math.min(srcH,srcW/aspect);
+        const sx=(srcW-sw)/2,sy=Math.max(0,(srcH-sh)*.18);
+        tx.drawImage(image,sx,sy,sw,sh,0,0,thumbnail.width,thumbnail.height);
+        const bitmap=tx.getImageData(0,0,thumbnail.width,thumbnail.height);
+        const dither=[0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5];
+        for(let y=0;y<thumbnail.height;y++)for(let x=0;x<thumbnail.width;x++){
+          const i=(y*thumbnail.width+x)*4;
+          const luminosity=bitmap.data[i]*.299+bitmap.data[i+1]*.587+bitmap.data[i+2]*.114;
+          const threshold=48+(dither[(y%4)*4+(x%4)]/15)*155;
+          const ink=luminosity>threshold?255:0;
+          bitmap.data[i]=ink;bitmap.data[i+1]=ink;bitmap.data[i+2]=ink;bitmap.data[i+3]=255;
+        }
+        tx.putImageData(bitmap,0,0);
+        ctx.drawImage(thumbnail,52,189,796,183);
+        ctx.strokeStyle='#000';ctx.lineWidth=2;ctx.strokeRect(52,189,796,183);
+      }catch{
+        // Cross-origin or decode restrictions should never block receipt generation.
+        ctx.strokeStyle='#000';ctx.strokeRect(52,189,796,183);
+      }
+    }else{ctx.strokeStyle='#000';ctx.strokeRect(52,189,796,183)}
+    t('TRANSACTION // VIRTUAL FAN CASH',52,419,22,true,796);
+    rule(476);
+    t('RECEIPT FOR',52,547,24);
+    t(name.toUpperCase(),52,619,46,true,796);
+    rule(665);
+    t('FAN KNOWLEDGE',52,729,24);
+    t(correct+'/5 · '+correct*20+'%',52,792,51,true,796);
+    rule(825);
+    t('AMOUNT UNLOCKED',52,885,24);
+    t(money(correct*200000),52,977,82,true,796);
+    rule(1044,true);
+    t('YOU SPEAK MONEY LINGO!',52,1111,34,true,796);
+    t('FICTIONAL REWARD — NOT REDEEMABLE',52,1167,22,true,796);
+    t('Fan-made tribute. Not a bank or an official Lojay promotion.',52,1217,18,false,796);
+    t('CREATED BY BIG DEMS',52,1262,23,true,796);
+    t('@dems_the penlord on X',52,1297,19,true,796);
     return c;
   }
   const receiptName=()=> 'MoneyLingo-'+name.replace(/[^a-z\d]+/gi,'-')+'-'+correct*20+'percent.png';
