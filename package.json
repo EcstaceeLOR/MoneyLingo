@@ -1,0 +1,10 @@
+{
+  "name": "money-lingo-atm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Unofficial Lojay Money Lingo fan quiz",
+  "scripts": {
+    "test": "node --test"
+  }
+}
